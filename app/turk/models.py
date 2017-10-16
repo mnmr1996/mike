@@ -5,38 +5,63 @@ from django.db import models
 class User(models.Model):#i think Django already has a user model
     #username
     #email
-    #Uuid // unique identifier
+    #Uuid // unique identifier should be a key
 
     pass
-
-
 class Visitor(models.Model):
     Ip_address = models.CharField(max_length = 10)
     #pages_browsed = we need to get the list of pages that are accessible
 
-
 class Client(models.Model):
-    Uuid = models.CharField(max_length = 50)
+    Uuid = models.CharField(max_length = 50,primary_key=True)
     #client_name = there is a way to refer the usermodel so we don't duplicate stuff
     current_sys_damand = models.CharField(max_length = 400)
     #current_balance
     #sys_demand_history
     #rating
-
-
 class Developer(models.Model):
-    pass
-
-
+    Uuid = models.CharField(max_length = 50,primary_key=True)
+    fullname = models.CharField(max_length=50)
+    wallet = models.IntegerField()
+    resume = models.FileField(upload_to="file path on system")
+    sysdemand = models.CharField(max_length=500)
+    Dev_since = models.DateTimeField(auto_created=True)
+    #sysdemands taken
+    #system delivered
 class Bid(models.Model):
-    pass
+    system_demand_Details = models.CharField(max_length=500)
+    bidder = models.CharField(max_length=50)#this needs review
+    current_bid =  models.IntegerField()
+    #time
+    #is_chosen: what is this for?
 
+class SysDemand(models.Model):
+    NONE = "None"
+    POSTED = "Posted"
+    DELIVERED = "Delivered"
+    TIMED_OUT = "Timed-out"
+    STATUS = "Active"
+    CANCELED = "Canceled"
 
-class SYSDEMANDS(models.Model):
-    pass
+    status_list = ((POSTED,"Posted"),
+                  (DELIVERED,"Delivered"),
+                  (TIMED_OUT,"Timed-out"),
+                  (STATUS,"Active"),
+                  (CANCELED,"Canceled"),
+                   (NONE, "None"))
+    time_posted = models.DateTimeField(auto_now_add=True)
+    deadLine = models.DateTimeField(auto_now=True)
+    #bids
+    starting_price = models.IntegerField()
+    #final_price
+    summary = models.CharField(max_length=200)
+    #owner = which client owns this SD
+    status = models.CharField(
+        max_length= 10,
+        choices = status_list,
+        default=NONE
+    )
 
-class REQUESTS(models.Model):
-    pass
 
 
 
