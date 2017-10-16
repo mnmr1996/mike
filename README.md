@@ -1,12 +1,12 @@
 # Turk
 
 
-##about:
+###about:
 Blue Turk (BT) is a service that gives businesses an opportunity to hire some of
 the world's best developers. Developers will have the opportunity to choose between
 a wide variety of development task that are requested/posted by businesses.
 
-Project Structure:
+###Project Structure:
 This project follows the conventional Django MTV (Model, Template View)  design.
 
 ```app/
