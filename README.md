@@ -9,7 +9,7 @@ a wide variety of development task that are requested/posted by businesses.
 ### Project Structure:
 This project follows the conventional Django MTV (Model, Template View)  design.
 
-```app/
+``` app/
   manage.py
   app/
      __init__.py
