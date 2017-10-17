@@ -26,6 +26,9 @@ class Developer(models.Model):
     resume = models.FileField(upload_to="file path on system")
     sysdemand = models.CharField(max_length=500)
     Dev_since = models.DateTimeField(auto_created=True)
+
+    def __str__(self):
+        return str(self.fullname)
     #sysdemands taken
     #system delivered
 class Bid(models.Model):
