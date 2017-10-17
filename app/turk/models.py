@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class User(models.Model):#i think Django already has a user model
+    #personal info
     #username
     #email
     #Uuid // unique identifier should be a key
