@@ -26,4 +26,5 @@ This project follows the conventional Django MTV (Model, Template View)  design.
       views.py```
 
   [time: october-15-2017]
-superuser pass word: youlovedp
+```superuser password: blue0091001```
+```superuser username: blue```

@@ -40,17 +40,18 @@ class Bid(models.Model):
     #is_chosen: what is this for?
 
 class SysDemand(models.Model):
+
     NONE = "None"
     POSTED = "Posted"
     DELIVERED = "Delivered"
     TIMED_OUT = "Timed-out"
-    STATUS = "Active"
+    STATUS = "Inprogress"
     CANCELED = "Canceled"
 
     status_list = ((POSTED,"Posted"),
                   (DELIVERED,"Delivered"),
                   (TIMED_OUT,"Timed-out"),
-                  (STATUS,"Active"),
+                  (STATUS,"Inprogress"),
                   (CANCELED,"Canceled"),
                    (NONE, "None"))
     time_posted = models.DateTimeField(auto_now_add=True)
@@ -59,12 +60,15 @@ class SysDemand(models.Model):
     starting_price = models.IntegerField()
     #final_price
     summary = models.CharField(max_length=200)
+    sysDemandName = models.CharField(max_length=20,blank=True)
     #owner = which client owns this SD
     status = models.CharField(
         max_length= 10,
         choices = status_list,
         default=NONE
     )
+    def __str__(self):
+        return str(self.sysDemandName)+"        [ "+str(self.status)+" ]"
 
 
 
