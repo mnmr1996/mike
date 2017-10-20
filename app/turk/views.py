@@ -11,7 +11,7 @@ from .forms import SignUpForm
 
 # method based view
 def home(request):
-    return render(request, 'home.html')
+    return HttpResponse('hello welcome home')
 
 
 def signup(request):
@@ -24,7 +24,7 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             #return HttpResponseRedirect('http://localhost:8000/turk/login/')
-            return redirect('home')
+            return redirect(home)
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
