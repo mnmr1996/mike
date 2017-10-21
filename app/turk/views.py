@@ -10,8 +10,10 @@ from .forms import SignUpForm
 # testing views
 
 # method based view
+@login_required
 def home(request):
-    return HttpResponse('hello welcome home')
+    return render(request,'home.html')
+    #  return HttpResponse('hello welcome home')
 
 
 def signup(request):
@@ -31,5 +33,9 @@ def signup(request):
     # some responds
 
 
-def loginform(resquest):
-    return HttpResponse("This will be the login page")
+def loginform(request):
+    return render(request,'login.html')
+
+@login_required
+def profile(request):
+    return HttpResponse("this is your profile")
