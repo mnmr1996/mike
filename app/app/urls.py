@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^turk/', include('turk.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('turk.urls'))
 ]
