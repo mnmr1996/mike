@@ -39,3 +39,6 @@ def loginform(request):
 @login_required
 def profile(request):
     return HttpResponse("this is your profile")
+
+def main(request):
+    return render(request, 'index.html')
